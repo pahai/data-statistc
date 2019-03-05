@@ -2,6 +2,7 @@
 <html style="height: 100%">
 	
 <head>
+	   <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=1">
        <meta charset="utf-8">
        <base target="_blank">
 	   <title>hx数据概览</title>
@@ -13,10 +14,11 @@
 			   color:white;
 			   text-align:center;
 			   padding:5px;
+			   width:100%;
 			   }
 		   #intro {
 			   line-height:30px;
-			   
+			   border:5px solid black;
 			   color:black;
 			   height:400px;
 			   width:500px;
@@ -24,14 +26,15 @@
 			   padding:20px;
 			   }
 		   #pie {
-			   height:400px;
+			   height:430px;
 			   width:500px;
-			   background-color:BLACK;
-			    float:left;
-			    padding:5px;
+			   border:5px solid black;
+			   float:left;
+			   padding:5px;
 			   }
-		   #rev {
-				height:400px;
+		   #relative {
+			   border:5px solid black;
+				height:420px;
 				width:800px;
 				float:left;
 				padding:10px;
@@ -39,29 +42,74 @@
 				}   
 			   	    
 	       #area-stack {
-			   height:600px;
-			   width:800px;
+			   border:5px solid black;
+			   height:800px;
+			   width:1050px;
 			   background-color:;
 			   padding:5px;
 			   clear:both;
 			   float:left;
 			   
-			   }  
-		   #containerb {
+			   }
+			   
+			#inout1 {
 			   height:500px;
-			   width:700px;
+			   width:395px;
+			   padding:5px;
+			   float:left;
+			   border:5px solid black;
+				}
+				
+			#inout2 {
+			   height:500px;
+			   width:395px;
+			   padding:5px;
+			   float:left;
+			   border:5px solid black;
+				}	
+				     
+			#end {
+			   height:280px;
+			   width:810px;
 			   padding:5px;
 			   background-color:;
 			   float:left;
 			   text-align:center;
-			   }  
+			   border:5px solid black;
+			   }
+			   
+			#btc {
+				height:600px;
+				width:940px;
+				paddomg:5px;
+				float:left;
+				border:5px solid black;
+				}   
+			
+			#hc {
+				height:600px;
+				width:940px;
+				paddomg:5px;
+				float:left;
+				border:5px solid black;
+				}
+				   
+			#footer {
+			   background-color:black;
+			   color:white;
+			   clear:both;
+			   text-align:center;
+			   padding:10px; 
+			   } 
+			   
 			#a {
-			   height:500px;
-			   width:700px;
-			   padding:5px;
-			   background-color:;
+			   border:5px solid black;
 			   float:left;
-			   }      
+			   height:290px;
+			   width:820px;
+			   } 
+			   
+		a {text-decoration: none}	        
        </style>		
 </head>
 
@@ -76,6 +124,7 @@
 	<script src="/icon/vintage.js"></script>
 	<script src="/icon/shine.js"></script>
 	<script src="/icon/roma.js"></script> 
+	<script type="text/javascript" src="https://widget.aicoin.net.cn/chart/js/aicoin.js"></script>
 	  
 	<div id="header">
 		<h1>Pahai Hub</h1>
@@ -85,26 +134,77 @@
 		<p><strong>hyper exchange(HX)是一个跨链交易平台，目前支持hc、btc、eth、ltc、elf、pax、usdt多币种质押</strong></p>
 		<p><strong>详情请点击下方文档</strong></p>
 	 
-  <a href="http://docs.hx.cash/">hx文档</a>
-  <a href="https://h.cash/">hcash主页</a>
-  <a href="http://explorer.hx.cash/">hx区块浏览器</a>
-  <a href="https://hc-explorer.h.cash/">hc区块浏览器</a>  
+		<a href="http://docs.hx.cash/">hx文档</a>
+		<a href="https://h.cash/">hcash主页</a>
+		<a href="http://explorer.hx.cash/">hx区块浏览器</a>
+		<a href="https://hc-explorer.h.cash/">hc区块浏览器</a> 
+<!--
+		<h1><script type="text/javascript">document.write(a);</script></h1> 
+-->
 	</div>  
+	<div id="relative"></div>
 	<div id="pie"></div>
-	<div id="rev"><h1>相关性</h1></div>
-	<div id="area-stack"></div>
-	<div id="containerb"><h1>增长率</h1></div>
-	<div id="a"></div>
 	
-	<script type="text/javascript">
+	<div id="area-stack"></div>
+	
+	<div id="inout1"></div>
+	
+	<div id="inout2"></div>
+	
+	<div id="end">
+		<a href="https://weibo.com/3804863935"><img src="/icon/sadsmile.jpg" height="100" width="100" /></a>
+		<br />
+		<p>疑问或建议，欢迎联系:</p>
+		<p>496345846@qq.com</p>
+		<p>HX打赏地址:</p>
+		<p>HXNT4g9pRZw5ruSBQySawn5e1bbzWW4fadcq</p>		
+	</div>
+	
+	
+	<div id="btc">
+		<script type="text/javascript">
+			new AICoin.chart({
+				"symbol": "ZBBTCQC",
+				"default_step": "86400",
+				"default_theme": "light",
+				"title": "btc实时走势",
+				"default_step": "86400",
+				"lang": "zh"
+				
+			})
+		</script>
+	</div>
+	
+	<div id="hc">
+		<script type="text/javascript">
+			new AICoin.chart({
+				"symbol": "ZBHSRQC",
+				"default_step": "86400",
+				"default_theme": "light",
+				"title": "btc实时走势",
+				"default_step": "86400",
+				"lang": "zh"
+				
+			})
+		</script>
+	</div>
+
+	<div id="footer">
+		数据来源：zb API, AIcoin, coinmarketcap, HX explorer
+	</div>
+
+<script type="text/javascript">
 	var piechart = echarts.init(document.getElementById('pie'),'macarons');
+	var relativechart = echarts.init(document.getElementById('relative'),'macarons');
 	var stackchart = echarts.init(document.getElementById('area-stack'),'macarons');
+	var inoutchart1 = echarts.init(document.getElementById('inout1'),'macarons');
+	var inoutchart2 = echarts.init(document.getElementById('inout2'),'macarons');
 	//饼图
 pieoption = {
 	backgroundColor: '#F0FFFF',	
 	title : {
         text: '资产占比',
-        subtext: '单位（万￥）',
+        subtext: '',
         x:'center'
     },
     tooltip : {
@@ -118,7 +218,7 @@ pieoption = {
     },
     series : [
 		{
-            name: '访问来源',
+            name: '币种市值',
             type: 'pie',
             radius : '55%',
             center: ['50%', '60%'],
@@ -134,11 +234,92 @@ pieoption = {
         }
     ]
 };
+
+	//价格-质押额曲线
+relative_option = {
+	tooltip : {
+        trigger: 'axis',
+        axisPointer: {
+            type: 'cross',
+            label: {
+                backgroundColor: '#6a7985'
+            }
+        },
+        position: function (pt) {
+            return [pt[0], '10%'];
+        }
+    },
+    toolbox: {
+        feature: {
+            dataZoom: {
+                yAxisIndex: 'none'
+            },
+            restore: {},
+            saveAsImage: {}
+        }
+    },
+    dataZoom: [{
+        type: 'inside',
+        start: 0,
+        end: 100
+    }, {
+        start: 0,
+        end: 10,
+        handleIcon: 'M10.7,11.9v-1.3H9.3v1.3c-4.9,0.3-8.8,4.4-8.8,9.4c0,5,3.9,9.1,8.8,9.4v1.3h1.3v-1.3c4.9-0.3,8.8-4.4,8.8-9.4C19.5,16.3,15.6,12.2,10.7,11.9z M13.3,24.4H6.7V23h6.6V24.4z M13.3,19.6H6.7v-1.4h6.6V19.6z',
+        handleSize: '80%',
+        handleStyle: {
+            color: '#fff',
+            shadowBlur: 3,
+            shadowColor: 'rgba(0, 0, 0, 0.6)',
+            shadowOffsetX: 2,
+            shadowOffsetY: 2
+        }
+    }],
+    legend:{
+		data:["质押市值","BTC","HC"]
+	},
+    xAxis: {
+        type: 'category',
+        data: []
+    },
+    yAxis: [
+		{
+			name:'质押市值（￥）',
+			type: 'value'
+		},
+		{
+			name:'相对价格（￥）',
+			type: 'value'
+		}
+    ],
+    series: [
+    {
+		name:'质押市值',
+        data: [],
+        type: 'line',
+        yAxisIndex:0
+    },
+    {
+		name:'BTC',
+        data: [],
+        type: 'line',
+        yAxisIndex:1
+    },
+    {
+		name:'HC',
+		data: [],
+        type: 'line',
+        yAxisIndex:1
+	}
+    ]
+};
+	
+	
 	//堆积折线图
 stackoption = {
 	backgroundColor: '#F0FFFF',
 	title: {
-		text: 'hx链上资产量'
+		text: 'hx链上资产量（￥）'
     },
     tooltip : {
         trigger: 'axis',
@@ -154,9 +335,8 @@ stackoption = {
     },
     legend: {
 		data:[]
-        //~ data:['BTC','ELF','PAX','ETH','HC','LTC','USDT']
     },
-     toolbox: {
+    toolbox: {
         feature: {
             dataZoom: {
                 yAxisIndex: 'none'
@@ -168,7 +348,7 @@ stackoption = {
     dataZoom: [{
         type: 'inside',
         start: 0,
-        end: 10
+        end: 100
     }, {
         start: 0,
         end: 10,
@@ -228,206 +408,50 @@ stackoption = {
             stack: '总量',
             areaStyle: {},
             data:[]
-        },
+        },      
+        {
+            name:'USDT',
+            type:'line',
+            stack: '总量',
+            areaStyle: {normal: {}},
+			data:[]
+		},
+        {
+            name:'LTC',
+            type:'line',
+            stack: '总量',
+            //~ label: {
+                //~ normal: {
+                    //~ show: true,
+                    //~ position: 'top'
+                //~ }
+            //~ },
+            areaStyle: {normal: {}},
+            data:[]
+        } ,
         {
             name:'HC',
             type:'line',
             stack: '总量',
             areaStyle: {},
             data:[]
-        },
-        {
-            name:'LTC',
-            type:'line',
-            stack: '总量',
-            areaStyle: {normal: {}},
-            data:[122, 132, 101, 134, 90, 230, 210, 132, 101, 134, 90, 230, 210, 132, 101, 134, 90, 230, 210, 132, 101, 134, 90, 230, 210, 132, 101, 134, 90, 230, 210, 132, 101, 134, 90, 230, 210, 132, 101, 134, 90, 230, 210]
-        },
-        {
-            name:'USDT',
-            type:'line',
-            stack: '总量',
-            label: {
-                normal: {
-                    show: true,
-                    position: 'top'
-                }
-            },
-            areaStyle: {normal: {}},
-            data:[820, 932, 901, 934, 1290, 1330, 1320, 932, 901, 934, 1290, 1330, 1320, 932, 901, 934, 1290, 1330, 1320, 932, 901, 934, 1290, 1330, 1320, 932, 901, 934, 1290, 1330, 1320, 932, 901, 934, 1290, 1330, 1320]
         }
     ]
 };
-	
-$.ajax({
-        type: "get",
-        async: true,
-        url: "pie.json",
-        dataType: "json",
-        success: function(data) {
-			//~ alert("success");
-            console.log(data.coins.length);
-            for(var i= 0,len=data.coins.length;i<len;i++){
-                var json={};
-				
-                json.name=data.coins[i];
-                json.value=data.values[i];
-                
-                pieoption.series[0].data[i]=json;
-                pieoption.legend.data=data.coins;
-            }
-            
-            stackoption.legend.data=data.coins;
-            stackoption.xAxis[0].data=data.time;
-            
-            piechart.clear();
-            piechart.hideLoading();
-            piechart.setOption(pieoption);
-            stackchart.setOption(stackoption);
-       
-        },
-        error: function(errorMsg) {
-            alert("失败");
-        }
-    });
-
-    	
-//~ piechart.setOption(pieoption);
-//~ stackchart.setOption(stackoption);
-	</script>
-<!--
-
-		
-	<script type="text/javascript">
-var dom1 = document.getElementById("pie");
-var piechart = echarts.init(dom1);
-
-piechart.setOption(
-{
-    backgroundColor: '#2c343c',
-
-    title: {
-        text: '市值占比',
-        left: 'center',
-        top: 20,
-        textStyle: {
-            color: '#ccc'
-        }
-    },
-
-    tooltip : {
-        trigger: 'item',
-        formatter: "{a} <br/>{b} : {c} ({d}%)"
-    },
-
-    visualMap: {
-        show: false,
-        min: 80,
-        max: 600,
-        inRange: {
-            colorLightness: [0, 1]
-        }
-    },
-    series : [
-        {
-            name:'市值￥',
-            type:'pie',
-            radius : '55%',
-            center: ['50%', '50%'],
-            data:[
-                //~ {value:11675403.056899128, name:'BTC'},
-                //~ {value:3507812.8644069037, name:'ELF'},
-                //~ {value:3028776.215822941, name:'PAX'},
-                //~ {value:4923863.591505196, name:'ETH'},
-                //~ {value:120028159.97760266, name:'HC'},
-                //~ {value:33762371.59560193, name:'LTC'},
-                //~ {value:349.31361506999997, name:'USDT'}
-            ].sort(function (a, b) { return a.value - b.value; }),
-            roseType: 'radius',
-            label: {
-                normal: {
-                    textStyle: {
-                        color: 'rgba(255, 255, 255, 0.3)'
-                    }
-                }
-            },
-            labelLine: {
-                normal: {
-                    lineStyle: {
-                        color: 'rgba(255, 255, 255, 0.3)'
-                    },
-                    smooth: 0.2,
-                    length: 10,
-                    length2: 20
-                }
-            },
-            itemStyle: {
-                normal: {
-                    color: '#c23531',
-                    shadowBlur: 200,
-                    shadowColor: 'rgba(0, 0, 0, 0.5)'
-                }
-            },
-
-            animationType: 'scale',
-            animationEasing: 'elasticOut',
-            animationDelay: function (idx) {
-                return Math.random() * 200;
-            }
-        }
-    ]
-});
-
-$.get('/icon/pie.json').done(function(data){
-	
-	piechart.setOption({
-		series:[
-		{
-			name:'市值￥',
-			type:'pie',
-            radius : '55%',
-            center: ['50%', '50%'],
-			data:[
-                {value:335, name:'访问'},
-                {value:310, name:'邮件营销'},
-                {value:274, name:'联盟广告'},
-                {value:235, name:'视频广告'},
-                {value:4000, name:'搜索'}
-            ],
-            roseType: 'radius',
-			}]
-		});
-	});
-
-//~ if (option && typeof option === "object") {
-    //~ myChart.setOption(option, true);
-//~ }
-
-       </script>
-	<script type="text/javascript">
-		  
-var dom2 = document.getElementById("area-stack");
-var stackchart = echarts.init(dom2,'infographic');
-stackchart.setOption({
-    title: {
-        text: 'hx链上资产量'
-    },
-    tooltip : {
+	//1日进出量
+inoutoption1 = {
+	tooltip : {
         trigger: 'axis',
-        axisPointer: {
-            type: 'cross',
-            label: {
-                backgroundColor: '#6a7985'
-            }
+        axisPointer : {            // 坐标轴指示器，坐标轴触发有效
+            type : 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
         }
     },
+    title: {
+		text: '近1日币量进出幅度%',
+        x:'center'
+	},
     legend: {
-        data:['BTC','ELF','PAX','ETH','HC','LTC','USDT']
-    },
-    toolbox: {
-        feature: {
-            saveAsImage: {}
-        }
+        data:['幅度']
     },
     grid: {
         left: '3%',
@@ -437,133 +461,43 @@ stackchart.setOption({
     },
     xAxis : [
         {
-            type : 'category',
-            boundaryGap : false,
-            data : ['周一','周二','周三','周四','周五','周六','日aaa','asa',]
+            type : 'value'
         }
     ],
     yAxis : [
         {
-            type : 'value'
+            type : 'category',
+            axisTick : {show: false},
+            data : []
         }
     ],
     series : [
         {
-            name:'BTC',
-            type:'line',
-            stack: '总量',
-            areaStyle: {},
-            data:[]
-        },
-        {
-            name:'ELF',
-            type:'line',
-            stack: '总量',
-            areaStyle: {},
-            data:[120, 132, 101, 134, 90, 230, 210,333]
-        },
-        {
-            name:'PAX',
-            type:'line',
-            stack: '总量',
-            areaStyle: {},
-            data:[120, 132, 101, 134, 90, 230, 210]
-        },
-        {
-            name:'ETH',
-            type:'line',
-            stack: '总量',
-            areaStyle: {},
-            data:[220, 182, 191, 234, 290, 330, 310]
-        },
-        {
-            name:'HC',
-            type:'line',
-            stack: '总量',
-            areaStyle: {},
-            data:[150, 232, 201, 154, 190, 330, 410]
-        },
-        {
-            name:'LTC',
-            type:'line',
-            stack: '总量',
-            areaStyle: {normal: {}},
-            data:[320, 332, 301, 334, 390, 330, 320]
-        },
-        {
-            name:'USDT',
-            type:'line',
-            stack: '总量',
+            name:'增长',
+            type:'bar',
+            //~ stack: '总量',
             label: {
                 normal: {
-                    show: true,
-                    position: 'top'
+                    show: true
                 }
             },
-            areaStyle: {normal: {}},
-            data:[820, 932, 901, 934, 1290, 1330, 1320]
+            data:[]
+        }]
+	}
+	//7日进出量
+inoutoption2 = {
+	tooltip : {
+        trigger: 'axis',
+        axisPointer : {            // 坐标轴指示器，坐标轴触发有效
+            type : 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
         }
-    ]
-}
-);;
-
-$.get('/icon/asset.json').done(function(data) {
-	stackchart.clear();
-	stackchart.setOption({
-		xAxis:[
-		{
-			type : 'category',
-			boundaryGap : false,
-			data:data.categories
-			}],
-		series:[
-		{
-			name:'BTC',
-			data:data.data
-			},
-			{
-			name:'ELF',
-			data:data.data
-			},
-			{
-			name:'PAX',
-			data:data.data
-			},
-			{
-			name:'ETH',
-			data:data.data
-			},
-			{
-			name:'HC',
-			data:data.data
-			},
-			{
-			name:'LTC',
-			data:data.data
-			},
-			{
-			name:'USDT',
-			data:data.data
-			}
-		]
-		});
-	});
-
-
-       </script>
-    <script type="text/javascript">
-var dom = document.getElementById("price");
-var line = echarts.init(dom);
-
-line.setOption({
-    title: {
-        text: 'prices'
-	},
-    tooltip: {
-        trigger: 'axis'
     },
+    title: {
+		text: '近7日币量进出幅度%',
+        x:'center'
+	},
     legend: {
-        data:['邮件营销','联盟广告','视频广告','直接访问','搜索引擎']
+        data:['幅度']
     },
     grid: {
         left: '3%',
@@ -571,105 +505,94 @@ line.setOption({
         bottom: '3%',
         containLabel: true
     },
-    toolbox: {
-        feature: {
-            saveAsImage: {}
+    xAxis : [
+        {
+            type : 'value'
         }
-    },
-    xAxis: {
-        type: 'category',
-        boundaryGap: false,
-        data: ['周一','周二','周三','周四','周五','周六','周日']
-    },
-    yAxis: {
-        type: 'value'
-    },
-    series: [
+    ],
+    yAxis : [
         {
-            name:'邮件营销',
-            type:'line',
-            stack: '总量',
-            data:[120, 132, 101, 134, 90, 230, 210]
-        },
-        {
-            name:'联盟广告',
-            type:'line',
-            stack: '总量',
-            data:[220, 182, 191, 234, 290, 330, 310]
-        },
-        {
-            name:'视频广告',
-            type:'line',
-            stack: '总量',
-            data:[150, 232, 201, 154, 190, 330, 410]
-        },
-        {
-            name:'直接访问',
-            type:'line',
-            stack: '总量',
-            data:[320, 332, 301, 334, 390, 330, 320]
-        },
-        {
-            name:'搜索引擎',
-            type:'line',
-            stack: '总量',
-            data:[820, 932, 901, 934, 1290, 1330, 1320]
+            type : 'category',
+            axisTick : {show: false},
+            data : []
         }
-    ]
-});
-$.get('/icon/pie.json').done(function(data){
-	line.setOption({
-		xAxis:{
-			type: 'category',
-        //~ boundaryGap: false,
-			data:data.a
-			}
-		});
-	});
-
-
-
-       </script>   
-	<script type="text/javascript">
-	  
-  var myChart = echarts.init(document.getElementById('containerb'),'infographic');
-myChart.setOption({
-    title: {
-        text: '异步数据加载示例'
-    },
-    tooltip: {},
-    legend: {
-        data:['销量']
-    },
-    xAxis: {
-        data: []
-    },
-    yAxis: {},
-    series: [{
-        name: '销量',
-        type: 'bar',
-        data: []
-    }]
-});
-
-
-$.get('/icon/total_value.json').done(function (data) {
-    myChart.clear();
-    myChart.setOption({
-        xAxis: {
-            data:data.categories
-            
-        },
-        series: [{
-          
-            
-            data:data.data
+    ],
+    series : [
+        {
+            name:'增长',
+            type:'bar',
+            //~ stack: '总量',
+            label: {
+                normal: {
+                    show: true
+                }
+            },
+            data:[]
         }]
+	}	
+	
+	//ajax请求后台数据
+$.ajax({
+        type: "get",
+        async: true,
+        url: "data.json",
+        dataType: "json",
+        success: function(data) {
+			//~ alert("success");
+            console.log(data.coins.length);
+            //填充饼图数据
+            for(var i= 0,len=data.coins.length;i<len;i++){
+                var json={};
+				
+                json.name=data.coins[i];
+                json.value=data.asset_list[i];
+                
+                pieoption.series[0].data[i]=json;
+                pieoption.series[0].data.sort(function (a, b) { return a.value - b.value; });
+                pieoption.legend.data=data.coins;
+            }
+            var total = data.total_value;
+            var total_e = total[total.length-1]/100000000;
+            pieoption.title.subtext="链上资产总额："+total_e.toFixed(4).toString()+" 亿元";
+            
+            //填充价格-质押额曲线数据
+            relative_option.xAxis.data=data.time;
+            relative_option.series[0].data=data.total_value;
+            relative_option.series[1].data=data.btc_price;
+            relative_option.series[2].data=data.hc_price;
+            
+            //填充堆积折线图数据
+            stackoption.legend.data=data.coins;
+            stackoption.xAxis[0].data=data.time;           
+			stackoption.series[0].data=data.btc;
+			stackoption.series[1].data=data.elf;
+			stackoption.series[2].data=data.pax;
+			stackoption.series[3].data=data.eth;
+			stackoption.series[4].data=data.usdt;
+			stackoption.series[5].data=data.ltc;
+			stackoption.series[6].data=data.hc;
+            
+			//填充币量进出条形图数据
+			
+			
+			inoutoption1.yAxis[0].data=data.coins;
+			inoutoption1.series[0].data=data.day_change;
+			inoutoption2.yAxis[0].data=data.coins;
+			inoutoption2.series[0].data=data.week_change;
+			
+            piechart.setOption(pieoption);
+            relativechart.setOption(relative_option);          
+            stackchart.setOption(stackoption);
+            inoutchart1.setOption(inoutoption1);
+            inoutchart2.setOption(inoutoption2);
+       
+        },
+        error: function(errorMsg) {
+            alert("失败");
+        }
     });
-});
-	</script>
--->
 
+	</script>
 </body>
 
 </html>
