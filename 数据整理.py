@@ -50,15 +50,20 @@ with open(r'C:\Users\Administrator\Desktop\num_list.txt','r') as f:
 
 #计算近期币数量变化幅度
 now = np.array(num_list[-1])
-last_oneday = np.array(num_list[-24])
-last_oneweek = np.array(num_list[-168])	
+last_oneday = np.array(num_list[-1])
+last_oneweek = np.array(num_list[-1])	
 day_change = list(100*(now - last_oneday)/last_oneday)
 week_change = list(100*(now - last_oneweek)/last_oneweek)
+
 btc_price=[]
 hc_price=[]
 for i in price:
-	btc_price.append(i[0])
-	hc_price.append(i[4]*2000)	
+	if len(i)<8:
+		btc_price.append(i[0])
+		hc_price.append(i[4]*2000)
+	else:
+		btc_price.append(i[1])
+		hc_price.append(i[5]*2000)		
 	
 #整理各币种市值列表	
 btc = []
@@ -68,22 +73,44 @@ eth = []
 hc = []
 ltc = []
 usdt = []
+bch = []
 
 for i in asset_list:
-	btc.append(i[0])
-	elf.append(i[1])
-	pax.append(i[2])
-	eth.append(i[3])
-	hc.append(i[4])
-	ltc.append(i[5])
-	if len(i)>6:
+	if len(i)<7:
+		btc.append(i[0])
+		elf.append(i[1])
+		pax.append(i[2])
+		eth.append(i[3])
+		hc.append(i[4])
+		ltc.append(i[5])
+		
+		usdt.append(0)
+		bch.append(0)
+		
+	if len(i)==7:
+		btc.append(i[0])
+		elf.append(i[1])
+		pax.append(i[2])
+		eth.append(i[3])
+		hc.append(i[4])
+		ltc.append(i[5])
 		usdt.append(i[6])
-	else:
-		usdt.append(0)	
+		
+		bch.append(0)
+		
+	if len(i)>7:
+		bch.append(i[0])
+		btc.append(i[1])
+		elf.append(i[2])
+		pax.append(i[3])
+		eth.append(i[4])
+		hc.append(i[5])
+		ltc.append(i[6])
+		usdt.append(i[7])
 
 #
 data = {
-	"coins":["BTC","ELF","PAX","ETH","HC","LTC","USDT"],
+	"coins":["BCH","BTC","ELF","PAX","ETH","HC","LTC","USDT"],
 	"day_change":day_change,
 	"week_change":week_change,
 	"btc_price":btc_price,
@@ -97,7 +124,8 @@ data = {
 	"eth":eth,
 	"hc":hc,
 	"ltc":ltc,
-	"usdt":usdt
+	"usdt":usdt,
+	"bch":bch
 }	
 
 with open(r'C:\inetpub\wwwroot\data.json','w',encoding="utf-8") as j:
