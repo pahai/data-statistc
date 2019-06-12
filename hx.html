@@ -366,7 +366,7 @@ a img:hover {
 	<script src="/icon/shine.js"></script>
 	<script src="/icon/roma.js"></script> 
 	<script type="text/javascript" src="https://widget.aicoin.net.cn/chart/js/aicoin.js"></script>
-	  
+
 	<div id="header">
 		<h1>Hx <span class="hub">Data</span></h1>
 	</div>	
@@ -374,7 +374,7 @@ a img:hover {
 		<p><strong>本网站自动统计并展示HX相关数据</strong></p>
 		<p><strong>Hyper exchange(HX)是一个跨链交易平台，目前支持hc、btc、eth、ltc、elf、pax、usdt多币种质押</strong></p>
 		<p><strong>详情请点击下方文档</strong></p>
-		<a href="http://docs.hx.cash/" style="padding:3px;color:white;background-color:#3f51b5;border-radius:7px;font-weight:normal;">hx文档</a>
+		<a href="http://hx.cash/" style="padding:3px;color:white;background-color:#3f51b5;border-radius:7px;font-weight:normal;">hx主页</a>
 		<a href="https://h.cash/" style="padding:3px;color:white;background-color:#8839D1;border-radius:7px;font-weight:normal;">hcash主页</a>
 		<a href="http://explorer.hx.cash/" style="padding:3px;color:white;background-color:#3f51b5;border-radius:7px;font-weight:normal;">hx区块浏览器</a>
 		<a href="https://hc-explorer.h.cash/" style="padding:3px;color:white;background-color:#8839D1;border-radius:7px;font-weight:normal;">hc区块浏览器</a> 
@@ -390,7 +390,7 @@ a img:hover {
 	<div id="inout2"></div>
 	
 	<div id="end">
-		<a style="position:relative;bottom:-0px;left:10px;" href="https://weibo.com/3804863935"><img src="/icon/sadsmile.jpg" height="70" width="70" /></a>
+		<a style="position:relative;bottom:-0px;left:10px;" href="https://weibo.com/7141861052"><img src="/icon/sadsmile.jpg" height="70" width="70" /></a>
 
 		<p class="neon" style="position:absolute;font-size:120%">email:<br />496345846@qq.com<br /><br />HX打赏地址:<br />HXNT4g9pRZw5ruSBQySawn5e1bbzWW4fadcq</p>
 
@@ -4347,7 +4347,6 @@ CzAAqYTVOPWO2yYAAAAASUVORK5CYII=" transform="matrix(0.98 0 0 0.98 1024.2817 776.
 	var inoutchart1 = echarts.init(document.getElementById('inout1'),'macarons');
 	var inoutchart2 = echarts.init(document.getElementById('inout2'),'macarons');
 	
-	
 	//饼图
 pieoption = {
 	backgroundColor: '#F0FFFF',	
@@ -4365,6 +4364,12 @@ pieoption = {
         left: 'left',
         data:[]
     },
+    toolbox:{
+		feature:{
+			saveAsImage:{}
+			}
+		},
+    
     series : [
 		{
             name: '币种市值',
@@ -4577,9 +4582,16 @@ stackoption = {
             //~ },
             areaStyle: {normal: {}},
             data:[]
-        } ,
+        },
         {
             name:'HC',
+            type:'line',
+            stack: '总量',
+            areaStyle: {},
+            data:[]
+        },
+        {
+            name:'BCH',
             type:'line',
             stack: '总量',
             areaStyle: {},
@@ -4680,6 +4692,12 @@ inoutoption2 = {
         }]
 	}	
 	
+piechart.showLoading();	
+relativechart.showLoading();
+stackchart.showLoading();
+inoutchart1.showLoading();
+inoutchart2.showLoading();
+
 	//ajax请求后台数据
 $.ajax({
         type: "get",
@@ -4720,10 +4738,9 @@ $.ajax({
 			stackoption.series[4].data=data.usdt;
 			stackoption.series[5].data=data.ltc;
 			stackoption.series[6].data=data.hc;
+            stackoption.series[7].data=data.bch;
             
-			//填充币量进出条形图数据
-			
-			
+			//填充币量进出条形图数据	
 			inoutoption1.yAxis[0].data=data.coins;
 			inoutoption1.series[0].data=data.day_change;
 			inoutoption2.yAxis[0].data=data.coins;
@@ -4734,6 +4751,13 @@ $.ajax({
             stackchart.setOption(stackoption);
             inoutchart1.setOption(inoutoption1);
             inoutchart2.setOption(inoutoption2);
+            
+            piechart.hideLoading();
+            relativechart.hideLoading();
+            stackchart.hideLoading();
+            inoutchart1.hideLoading();
+            inoutchart2.hideLoading();
+            
             
             //各币种数量展示
        
