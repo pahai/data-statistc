@@ -24,11 +24,12 @@ price = requests.get(api,headers = headers).json()
 #~ binance = requests.get(binance_api,headers = headers).json()
 #~ elfbtc = float(binance['price'])
 
-#获取cmt价格
+#爬虫获取cmt价格
 elf_text = requests.get(cmt_url,headers = headers).text
 doc = pq(elf_text)
 elfusd = float(doc('.h2.text-semi-bold.details-panel-item--price__value').text())
 
+bch_price = price.get('bchabcqc').get('last')
 usdt_price = price.get('usdtqc').get('last')
 btc_price = price.get('btcqc').get('last')
 elf_price = str(elfusd * float(usdt_price))
@@ -43,7 +44,7 @@ localtime = time.asctime(time.localtime(time.time()))
 
 
 num_list = []#各币种质押数量
-price_list = [btc_price,elf_price,pax_price,eth_price,hc_price,ltc_price，usdt_price]#各币种现价列表
+price_list = [bch_price,btc_price,elf_price,pax_price,eth_price,hc_price,ltc_price,usdt_price]#各币种现价列表
 b = cross_asset.split()
 for i in b:
 	if b.index(i) % 2 == 0:
@@ -53,24 +54,29 @@ asset_list = [float(a)*float(b) for a,b in zip(num_list,price_list)]	#各币种�
 
 total_value = sum(asset_list)
 
-
-#~ with open(r'C:\Users\Pahai\Desktop\price_list.txt','a',encoding = 'utf-8') as f:
-	#~ f.write(str(price_list))
-	#~ f.write('\n')
-	#~ f.close()
-#~ with open(r'C:\Users\Pahai\Desktop\asset_list.txt','a',encoding = 'utf-8') as f:
-	#~ f.write(str(asset_list))
-	#~ f.write('\n')
-	#~ f.close()
-#~ with open(r'C:\Users\Pahai\Desktop\total_value.txt','a',encoding = 'utf-8') as f:
-	#~ f.write(str(total_value))
-	#~ f.write('\n')
-	#~ f.close()
-#~ with open(r'C:\Users\Pahai\Desktop\time.txt','a',encoding = 'utf-8') as f:
-	#~ f.write(localtime)
-	#~ f.write('\n')
-	#~ f.close()
-	
+with open(r'C:\inetpub\wwwroot\cross_asset.txt','w',encoding = 'utf-8') as f:
+	f.write(cross_asset)
+	f.close()
+with open(r'C:\Users\Administrator\Desktop\price_list.txt','a',encoding = 'utf-8') as f:
+        f.write(str(price_list))
+        f.write('\n')
+        f.close()
+with open(r'C:\Users\Administrator\Desktop\asset_list.txt','a',encoding = 'utf-8') as f:
+        f.write(str(asset_list))
+        f.write('\n')
+        f.close()
+with open(r'C:\Users\Administrator\Desktop\total_value.txt','a',encoding = 'utf-8') as f:
+        f.write(str(total_value))
+        f.write('\n')
+        f.close()
+with open(r'C:\Users\Administrator\Desktop\time.txt','a',encoding = 'utf-8') as f:
+        f.write(localtime)
+        f.write('\n')
+        f.close()
+with open(r'C:\Users\Administrator\Desktop\num_list.txt','a',encoding = 'utf-8') as f:
+        f.write(str(num_list))
+        f.write('\n')
+        f.close()
 
 	
 print('质押情况：')
